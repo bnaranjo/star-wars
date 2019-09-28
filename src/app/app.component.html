@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink]="['/films']">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -22,12 +22,12 @@
             Query
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">People</a>
-            <a class="dropdown-item" href="#">Films</a>
-            <a class="dropdown-item" href="#">Starships</a>
-            <a class="dropdown-item" href="#">Vehicles</a>
-            <a class="dropdown-item" href="#">Species</a>
-            <a class="dropdown-item" href="#">Planets</a>
+            <a class="dropdown-item" [routerLink]="['/people']">People</a>
+            <a class="dropdown-item" [routerLink]="['/films']">Films</a>
+            <a class="dropdown-item" [routerLink]="['/starships']">Starships</a>
+            <a class="dropdown-item" [routerLink]="['/vehicles']">Vehicles</a>
+            <a class="dropdown-item" [routerLink]="['/species']">Species</a>
+            <a class="dropdown-item" [routerLink]="['/planets']">Planets</a>
           </div>
         </li>
       </ul>
@@ -44,5 +44,9 @@
         </div>
       </li>
     </ul>
-  </nav>
+  </nav><!-- end menu-->
+
+  <!-- Routing -->
+  <router-outlet></router-outlet>
+
 </div>

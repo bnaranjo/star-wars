@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlanetsComponent implements OnInit {
 
-  constructor() { }
+  private page_title: string;
+
+  constructor() {
+    this.page_title='Planets';
+   }
 
   ngOnInit() {
   }
