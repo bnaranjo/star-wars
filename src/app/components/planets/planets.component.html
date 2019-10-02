@@ -1,4 +1,41 @@
 <div class='col-md-12 mt-3'>
     <h1>{{page_title}}</h1>
     <hr>
+    <form class='col-md-5 ml-0 pl-0' #planetsForm="ngForm" (ngSubmit)="onSubmit(planetsForm)">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select type query</label>
+            <select class="form-control" id="type" name="type" #name="ngModel" [(ngModel)]="planets.type" required>
+                <option value="1">All</option>
+                <option value="2">Name</option>
+                 </select>
+        </div>
+        <div class='form-group'>
+            <label for="name">Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="planets.name" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="Submit" value="query" class="btn btn-success" [disabled]="planetsForm.invalid">
+        </div>
+
+    </form>
+
+    <hr>
+    <div class="card-columns">
+        <article class="card w-100" *ngFor="let planets of result">
+            <div class="card-header">
+                <p>Name: {{ planets["name"] }}</p>
+                <p>climate: {{ planets["climate"] }}</p>
+                <p>created: {{ planets["created"] }}</p>
+                <p>diameter: {{ planets["diameter"] }}</p>
+                <p>edited: {{ planets["edited"] }}</p>
+                <p>gravity: {{ planets["gravity"] }}</p>   
+                <p>orbital_period: {{ planets["orbital_period"] }}</p>
+                <p>pupolation: {{ planets["population"] }}</p> 
+                <p>rotation: {{ planets["rotation"] }}</p> 
+                <p>surface_water: {{ planets["surface_water"] }}</p> 
+                <p>terrain: {{ planets["terrain"] }}</p>                    
+            </div>
+        </article>
+    </div>
+
 </div>
