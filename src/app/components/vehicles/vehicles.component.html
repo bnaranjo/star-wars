@@ -1,0 +1,36 @@
+<div class='col-md-12 mt-3'>
+    <h1>{{page_title}}</h1>
+    <hr>
+    <form class='col-md-5 ml-0 pl-0' #peopleForm="ngForm" (ngSubmit)="onSubmit(vehicleForm)">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select type query</label>
+            <select class="form-control" id="type" name="type" #name="ngModel" [(ngModel)]="vehicles.type" required>
+                <option value="1">All</option>
+                <option value="2">Name</option>
+                 </select>
+        </div>
+        <div class='form-group'>
+            <label for="name">Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="vehicles.name" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="Submit" value="query" class="btn btn-success" [disabled]="vehicleForm.invalid">
+        </div>
+
+    </form>
+
+    <hr>
+    <div class="card-columns">
+        <article class="card w-100" *ngFor="let vehicles of result">
+            <div class="card-header">
+                <p>Name: {{ vehicles["name"] }}</p>
+                <p>Modelo: {{ vehicles["model"] }}</p>
+                <p>Fabricante: {{ vehicles["manufacturer"] }}</p>
+                <p>Precio: {{ vehicles["cost_in_credits"] }}</p>
+                <p>largo: {{ vehicles["length"] }}</p>
+                <p>Velocidad: {{ vehicles["max_atmosphering_speed"] }}</p>   
+            </div>
+        </article>
+    </div>
+
+</div>

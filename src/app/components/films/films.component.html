@@ -1,0 +1,35 @@
+<div class='col-md-12 mt-3'>
+    <h1>{{page_title}}</h1>
+    <hr>
+
+    <form class='col-md-5 ml-0 pl-0' #filmForm="ngForm" (ngSubmit)="onSubmit(filmForm)">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select type query</label>
+            <select class="form-control" id="type" name="type" #name="ngModel" [(ngModel)]="film.type" required>
+                <option value="1">All</option>
+                <option value="2">Name</option>
+            </select>
+        </div>
+        <div class='form-group'>
+            <label for="name">Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="film.name" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="Submit" value="query" class="btn btn-success" [disabled]="filmForm.invalid">
+        </div>
+
+    </form>
+
+    <hr>
+    <div class="card-columns">
+        <article class="card w-100" *ngFor="let film of result">
+            <div class="card-header">
+                <p>Title: {{ film["title"] }}</p>
+                <p>Director: {{ film["director"] }}</p>
+                <p>Producer: {{ film["producer"] }}</p>
+                <p>Created: {{ film["created"] }}</p>
+            </div>
+        </article>
+    </div>
+
+</div>

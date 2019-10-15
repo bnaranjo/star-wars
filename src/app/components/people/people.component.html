@@ -1,0 +1,35 @@
+<div class='col-md-12 mt-3'>
+    <h1>{{page_title}}</h1>
+    <hr>
+
+    <form class='col-md-5 ml-0 pl-0' #peopleForm="ngForm" (ngSubmit)="onSubmit(peopleForm)">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select type query</label>
+            <select class="form-control" id="type" name="type" #name="ngModel" [(ngModel)]="people.type" required>
+                <option value="1">All</option>
+                <option value="2">Name</option>
+            </select>
+        </div>
+        <div class='form-group'>
+            <label for="name">Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="people.name" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="Submit" value="query" class="btn btn-success" [disabled]="peopleForm.invalid">
+        </div>
+
+    </form>
+
+    <hr>
+    <div class="card-columns">
+        <article class="card w-100" *ngFor="let people of result">
+            <div class="card-header">
+                <p>Name: {{ people["name"] }}</p>
+                <p>Height: {{ people["height"] }}</p>
+                <p>Birth_year: {{ people["birth_year"] }}</p>
+                <p>Gender: {{ people["gender"] }}</p>
+            </div>
+        </article>
+    </div>
+
+</div>
