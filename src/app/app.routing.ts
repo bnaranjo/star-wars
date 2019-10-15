@@ -11,7 +11,7 @@ import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { ErrorComponent } from './components/error/error.component';
 
 const appRoutes: Routes = [
-    {path: '', component: FilmsComponent},
+    {path: '', component: PeopleComponent},
     {path: 'films', component: FilmsComponent},
     {path: 'login', component: LoginComponent},
     {path: 'people', component: PeopleComponent},
