@@ -1,4 +1,39 @@
 <div class='col-md-12 mt-3'>
     <h1>{{page_title}}</h1>
     <hr>
+    <form class='col-md-5 ml-0 pl-0' #speciesForm="ngForm" (ngSubmit)="onSubmit(speciesForm)">
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select type query</label>
+            <select class="form-control" id="type" name="type" #name="ngModel" [(ngModel)]="species.type" required>
+                <option value="1">All</option>
+                <option value="2">Name</option>
+                 </select>
+        </div>
+        <div class='form-group'>
+            <label for="name">Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="species.name" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="Submit" value="query" class="btn btn-success" [disabled]="speciesForm.invalid">
+        </div>
+
+    </form>
+
+    <hr>
+    <div class="card-columns">
+        <article class="card w-100" *ngFor="let species of result">
+            <div class="card-header">
+                <p><span> Name: </span> {{ species["name"] }}</p>
+                <p><span> clasificacion:</span> {{ species["classification"] }}</p>
+                <p><span> Fabricante:</span> {{ species["designation"] }}</p>
+                <p><span> Altura media:</span> {{ species["average_height"] }}</p>
+                <p><span> Color de piel:</span> {{ species["skin_colors"] }}</p>
+                <p><span> Color de pelo:</span> {{ species["hair_colors"] }}</p>   
+                <p><span> Color de ojos:</span> {{ species["eye_colors"] }}</p>  
+                <p><span> Promedio de vida:</span> {{ species["average_lifespan"] }}</p>  
+                <p><span> Idioma:</span> {{ species["language"] }}</p>  
+                </div>
+        </article>
+    </div>
+
 </div>
